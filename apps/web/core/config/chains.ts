@@ -1,47 +1,14 @@
-import {
-  arbitrum,
-  arbitrumSepolia,
-  base,
-  baseSepolia,
-  mainnet,
-  optimism,
-  optimismSepolia,
-  polygon,
-  polygonAmoy,
-  sepolia,
-} from "wagmi/chains";
+import { bscTestnet } from "wagmi/chains";
 
 import { env } from "./env";
 
 import type { Chain } from "viem";
 
 const CHAIN_MAP: Record<string, Chain> = {
-  mainnet,
-  ethereum: mainnet,
-  sepolia,
-  polygon,
-  amoy: polygonAmoy,
-  polygonAmoy,
-  optimism,
-  optimismSepolia,
-  arbitrum,
-  arbitrumSepolia,
-  base,
-  baseSepolia,
+  bscTestnet,
 };
 
-const DEFAULT_CHAINS: Chain[] = [
-  mainnet,
-  sepolia,
-  polygon,
-  polygonAmoy,
-  optimism,
-  optimismSepolia,
-  arbitrum,
-  arbitrumSepolia,
-  base,
-  baseSepolia,
-];
+const DEFAULT_CHAINS: Chain[] = [bscTestnet];
 
 export function resolveWalletChains(): Chain[] {
   const raw = env.NEXT_PUBLIC_EVM_CHAINS?.trim();
